@@ -9,7 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /app
 
 # Copy the requirements.txt to the container's /app directory
-COPY requirements.txt /app/
+COPY ecommerce/requirements.txt /app/
+
 
 # Install the dependencies inside the container
 RUN pip install --no-cache-dir -r requirements.txt
