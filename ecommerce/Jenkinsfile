@@ -31,9 +31,9 @@ pipeline{
                 withCredentials([file(credentialsId: 'kubernetes', variable: '')]) {
                     sh '''
                     echo 'applying deployment file'
-                    kubectl apply -f deployment.yml
+                    kubectl apply -f ecommerce/deployment.yml
                     echo 'applying service file'
-                    kubectl apply -f svc.yml
+                    kubectl apply -f ecommerce/svc.yml
                     '''
 }
                 }
