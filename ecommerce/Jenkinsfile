@@ -28,8 +28,8 @@ pipeline{
 }
        stage('deploy-to-kubernetes'){
             steps{
-                withCredentials([file(credentialsId: 'kubernetes', variable: '')]) {
-                    sh '''
+               withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+     sh '''
                     echo 'applying deployment file'
                     kubectl apply -f ecommerce/deployment.yml
                     echo 'applying service file'
